@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use Inertia\Inertia;
 
 /*
@@ -16,12 +17,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function() {
-    return Inertia::render('Homepage', [
-        'title' => 'Homepage',
-        'desc' => 'Selamat Datang di portal berita pemilu',
-    ]);
-});
+Route::get('/', [NewsController::class, 'index']);
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
